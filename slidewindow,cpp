@@ -1,0 +1,26 @@
+#include<iostream>
+#include<set>
+#include<map>
+#include<vector>
+using namespace std;
+#define MAX 100
+//use sliding window
+int f[20005];
+int main()
+{
+    int N,S;cin>>N>>S;
+    int a[N];
+    for(int &x:a) cin>>x;
+    int l=0,sum=0,res=0;
+    for(int r=0;r<N;r++)
+    {
+        sum+=a[r];
+        while(sum>=S){
+            res+=N-r;
+            sum-=a[l];
+            l++;
+        }
+
+    }
+    cout<<res<<endl;
+}
